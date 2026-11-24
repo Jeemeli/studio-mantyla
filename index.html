@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Studio Mäntylä — 3D mascots & character animation</title>
+    <meta
+      name="description"
+      content="Studio Mäntylä is a Helsinki character studio for 3D mascots, hero renders, and short animations."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2324382c'/%3E%3Cpath d='M16 6l2.2 7h-4.4L16 6zm-6 6.5l4 5.2-2.4 1.2-1.6-6.4zm12 0l-4 5.2 2.4 1.2 1.6-6.4zM16 14c6 1.2 8 7 6.4 12.2-2.2 1.6-10.6 1.6-12.8 0C8 21 10 15.2 16 14z' fill='%23e7d7be'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="mascot-pihka" viewBox="0 0 200 240">
+        <ellipse cx="100" cy="214" rx="58" ry="11" fill="#000" opacity=".28" />
+        <path d="M100 34 L110 74 L90 74 Z" fill="#1e3a28" />
+        <path d="M74 50 L98 80 L84 86 Z" fill="#2a4a34" />
+        <path d="M126 50 L116 86 L102 80 Z" fill="#2a4a34" />
+        <path d="M58 72 L90 94 L76 102 Z" fill="#345c40" />
+        <path d="M142 72 L124 102 L110 94 Z" fill="#345c40" />
+        <path d="M100 68 C150 78 166 132 152 178 C140 216 60 216 48 178 C34 132 50 78 100 68Z" fill="#3f6b4c" />
+        <path d="M100 98 C130 106 138 142 128 172 C118 198 82 198 72 172 C62 142 70 106 100 98Z" fill="#e7d3b4" />
+        <ellipse cx="48" cy="152" rx="18" ry="12" fill="#356246" transform="rotate(-28 48 152)" />
+        <ellipse cx="152" cy="152" rx="18" ry="12" fill="#356246" transform="rotate(28 152 152)" />
+        <ellipse cx="84" cy="132" rx="5.2" ry="6.2" fill="#1c1612" />
+        <ellipse cx="116" cy="132" rx="5.2" ry="6.2" fill="#1c1612" />
+        <ellipse cx="85.6" cy="130" rx="1.7" ry="1.7" fill="#fff" />
+        <ellipse cx="117.6" cy="130" rx="1.7" ry="1.7" fill="#fff" />
+        <path d="M90 150 Q100 158 110 150" fill="none" stroke="#1c1612" stroke-width="2.5" stroke-linecap="round" />
+        <ellipse cx="70" cy="146" rx="8" ry="4.5" fill="#e39b73" opacity=".75" />
+        <ellipse cx="130" cy="146" rx="8" ry="4.5" fill="#e39b73" opacity=".75" />
+        <ellipse cx="80" cy="200" rx="16" ry="8" fill="#2c4d38" />
+        <ellipse cx="120" cy="200" rx="16" ry="8" fill="#2c4d38" />
+      </symbol>
+      <symbol id="mascot-kajo" viewBox="0 0 200 240">
+        <ellipse cx="104" cy="214" rx="62" ry="11" fill="#000" opacity=".28" />
+        <path d="M148 170 C192 150 190 108 158 106 C148 132 140 152 148 170Z" fill="#f4e7d6" />
+        <path d="M166 110 C188 96 190 126 164 134 C154 120 156 112 166 110Z" fill="#8fd0c8" />
+        <ellipse cx="96" cy="158" rx="52" ry="48" fill="#f4e7d6" />
+        <ellipse cx="96" cy="170" rx="32" ry="28" fill="#fff8ef" />
+        <ellipse cx="90" cy="106" rx="40" ry="36" fill="#f4e7d6" />
+        <path d="M56 98 L66 48 L92 86Z" fill="#f4e7d6" />
+        <path d="M64 90 L72 58 L84 86Z" fill="#d4764e" />
+        <path d="M124 96 L116 46 L92 84Z" fill="#f4e7d6" />
+        <path d="M116 88 L108 56 L96 84Z" fill="#8fd0c8" />
+        <ellipse cx="76" cy="106" rx="4.6" ry="5.6" fill="#1c1612" />
+        <ellipse cx="106" cy="106" rx="4.6" ry="5.6" fill="#1c1612" />
+        <ellipse cx="77.4" cy="104.2" rx="1.5" ry="1.5" fill="#fff" />
+        <ellipse cx="107.4" cy="104.2" rx="1.5" ry="1.5" fill="#fff" />
+        <ellipse cx="90" cy="120" rx="8" ry="5.5" fill="#1c1612" />
+        <ellipse cx="90" cy="118.2" rx="3.2" ry="2" fill="#f4e7d6" />
+        <path d="M82 128 Q90 134 98 128" fill="none" stroke="#1c1612" stroke-width="2.2" stroke-linecap="round" />
+        <ellipse cx="74" cy="198" rx="14" ry="8" fill="#e7d3bc" />
+        <ellipse cx="114" cy="198" rx="14" ry="8" fill="#e7d3bc" />
+      </symbol>
+      <symbol id="mascot-nuppu" viewBox="0 0 200 240">
+        <ellipse cx="100" cy="214" rx="54" ry="11" fill="#000" opacity=".28" />
+        <path d="M100 64 C100 42 116 36 120 52 C110 54 104 60 100 70Z" fill="#3f6b4c" />
+        <path d="M100 66 C100 44 84 36 78 52 C90 54 96 62 100 72Z" fill="#5e8f68" />
+        <ellipse cx="100" cy="132" rx="60" ry="56" fill="#f3d7b0" />
+        <ellipse cx="100" cy="146" rx="36" ry="34" fill="#fbe8cf" />
+        <ellipse cx="58" cy="140" rx="11" ry="7" fill="#e7a3b0" opacity=".9" />
+        <ellipse cx="142" cy="140" rx="11" ry="7" fill="#e7a3b0" opacity=".9" />
+        <circle cx="146" cy="84" r="13" fill="#c4534a" />
+        <ellipse cx="141" cy="79" rx="3.4" ry="2.2" fill="#f4c7c2" />
+        <path d="M146 72 Q154 64 156 74" fill="none" stroke="#3f6b4c" stroke-width="2.4" stroke-linecap="round" />
+        <ellipse cx="80" cy="126" rx="5.2" ry="6.2" fill="#1c1612" />
+        <ellipse cx="120" cy="126" rx="5.2" ry="6.2" fill="#1c1612" />
+        <ellipse cx="81.6" cy="124" rx="1.6" ry="1.6" fill="#fff" />
+        <ellipse cx="121.6" cy="124" rx="1.6" ry="1.6" fill="#fff" />
+        <path d="M88 148 Q100 160 112 148" fill="none" stroke="#1c1612" stroke-width="2.6" stroke-linecap="round" />
+        <ellipse cx="76" cy="198" rx="16" ry="9" fill="#e7c49a" />
+        <ellipse cx="124" cy="198" rx="16" ry="9" fill="#e7c49a" />
+      </symbol>
+      <symbol id="mascot-laine" viewBox="0 0 200 240">
+        <ellipse cx="100" cy="216" rx="66" ry="11" fill="#000" opacity=".28" />
+        <ellipse cx="100" cy="156" rx="64" ry="52" fill="#6f93ab" />
+        <ellipse cx="100" cy="168" rx="40" ry="36" fill="#d7e7f0" />
+        <ellipse cx="100" cy="102" rx="48" ry="40" fill="#7ea3ba" />
+        <ellipse cx="100" cy="118" rx="18" ry="12" fill="#d7e7f0" />
+        <ellipse cx="94" cy="116" rx="2.1" ry="2.5" fill="#1c1612" />
+        <ellipse cx="106" cy="116" rx="2.1" ry="2.5" fill="#1c1612" />
+        <ellipse cx="78" cy="94" rx="5.2" ry="6.2" fill="#1c1612" />
+        <ellipse cx="122" cy="94" rx="5.2" ry="6.2" fill="#1c1612" />
+        <ellipse cx="79.6" cy="92" rx="1.6" ry="1.6" fill="#fff" />
+        <ellipse cx="123.6" cy="92" rx="1.6" ry="1.6" fill="#fff" />
+        <path d="M58 128 Q100 152 142 128 L150 146 Q100 176 50 146Z" fill="#d4893a" />
+        <path d="M136 142 L162 176 L146 182 L122 150Z" fill="#e0a15c" />
+        <ellipse cx="40" cy="162" rx="20" ry="12" fill="#5e849c" transform="rotate(-32 40 162)" />
+        <ellipse cx="160" cy="158" rx="20" ry="12" fill="#5e849c" transform="rotate(26 160 158)" />
+        <ellipse cx="100" cy="200" rx="30" ry="10" fill="#5e849c" />
+      </symbol>
+      <symbol id="mascot-tarmo" viewBox="0 0 200 240">
+        <ellipse cx="100" cy="216" rx="50" ry="10" fill="#000" opacity=".28" />
+        <rect x="96" y="40" width="8" height="26" rx="4" fill="#3a3632" />
+        <circle cx="100" cy="34" r="11" fill="#e0a15c" />
+        <circle cx="96" cy="30" r="3.2" fill="#f6e2c2" />
+        <rect x="56" y="64" width="88" height="66" rx="22" fill="#4c4742" />
+        <rect x="70" y="80" width="60" height="28" rx="10" fill="#1c1916" />
+        <rect x="78" y="86" width="34" height="16" rx="6" fill="#f0c48a" />
+        <circle cx="128" cy="94" r="4.5" fill="#f0c48a" />
+        <rect x="62" y="136" width="76" height="62" rx="20" fill="#5a544d" />
+        <rect x="78" y="148" width="44" height="32" rx="8" fill="#3a3632" />
+        <circle cx="90" cy="164" r="4.2" fill="#e0a15c" />
+        <circle cx="112" cy="164" r="4.2" fill="#c9c3b8" />
+        <rect x="32" y="146" width="30" height="16" rx="8" fill="#4c4742" />
+        <rect x="138" y="146" width="30" height="16" rx="8" fill="#4c4742" />
+        <rect x="76" y="194" width="16" height="16" rx="6" fill="#3a3632" />
+        <rect x="108" y="194" width="16" height="16" rx="6" fill="#3a3632" />
+      </symbol>
+      <symbol id="mascot-usva" viewBox="0 0 200 240">
+        <ellipse cx="100" cy="214" rx="52" ry="10" fill="#000" opacity=".28" />
+        <path d="M60 84 L78 36 L98 82Z" fill="#b7b2c6" />
+        <path d="M140 84 L122 36 L102 82Z" fill="#b7b2c6" />
+        <ellipse cx="100" cy="148" rx="58" ry="62" fill="#c9c4d6" />
+        <ellipse cx="100" cy="164" rx="34" ry="40" fill="#f4f0f8" />
+        <ellipse cx="44" cy="152" rx="20" ry="34" fill="#b0abc0" />
+        <ellipse cx="156" cy="152" rx="20" ry="34" fill="#b0abc0" />
+        <circle cx="76" cy="118" r="22" fill="#f7f4ef" />
+        <circle cx="124" cy="118" r="22" fill="#f7f4ef" />
+        <circle cx="78" cy="120" r="11" fill="#1c1612" />
+        <circle cx="126" cy="120" r="11" fill="#1c1612" />
+        <circle cx="82" cy="116" r="3.6" fill="#fff" />
+        <circle cx="130" cy="116" r="3.6" fill="#fff" />
+        <path d="M100 132 L112 148 L88 148Z" fill="#e0a15c" />
+        <path d="M78 198 L68 214 L86 208 L96 214 L90 198Z" fill="#e0a15c" />
+        <path d="M110 198 L104 214 L116 208 L134 214 L122 198Z" fill="#e0a15c" />
+      </symbol>
+    </svg>
+
+    <a class="skip" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap bar">
+        <button class="logo" type="button" data-go="home">
+          <span>Studio</span>
+          Mäntylä
+        </button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          Menu
+        </button>
+        <nav id="site-nav" class="nav">
+          <button type="button" data-go="work" data-nav>Work</button>
+          <button type="button" data-go="approach" data-nav>Approach</button>
+          <button type="button" data-go="contact" data-nav>Contact</button>
+          <button type="button" class="btn" data-go="contact">Start a project</button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="screen" data-screen="home">
+        <div class="wrap hero">
+          <div class="hero-copy">
+            <p class="kicker">Character studio · Helsinki</p>
+            <h1>Mascots with a <em>life of their own.</em></h1>
+            <p class="lede">
+              Studio Mäntylä sculpts original 3D characters — brand mascots, hero renders, and short animations — for teams who need a face people remember.
+            </p>
+            <div class="hero-actions">
+              <button type="button" class="btn" data-go="work">See the work</button>
+              <button type="button" class="btn btn-ghost" data-go="contact">Commission a character</button>
+            </div>
+            <ul class="facts">
+              <li>Mascots</li>
+              <li>Character stills</li>
+              <li>Short loops</li>
+            </ul>
+          </div>
+          <div class="stage" id="hero-stage" style="--glow: #e0a15c">
+            <div class="stage-figure">
+              <svg id="hero-mascot" class="mascot" viewBox="0 0 200 240" role="img" aria-label="Pihka, a pine-resin mascot">
+                <use href="#mascot-pihka"></use>
+              </svg>
+            </div>
+            <div class="stage-ui">
+              <p class="stage-name" id="hero-name">Pihka</p>
+              <div class="segment" role="group" aria-label="Preview pose">
+                <button type="button" data-pose="still" aria-pressed="true">Still</button>
+                <button type="button" data-pose="turn" aria-pressed="false">Turntable</button>
+                <button type="button" data-pose="loop" aria-pressed="false">Loop</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrap thumb-row" id="hero-thumbs" aria-label="Switch sample character"></div>
+
+        <section class="band">
+          <div class="wrap">
+            <div class="section-head">
+              <div>
+                <p class="kicker">Selected</p>
+                <h2>Characters on the bench</h2>
+              </div>
+              <button type="button" class="text-btn" data-go="work">All work</button>
+            </div>
+            <div class="work-grid is-home" id="home-work"></div>
+          </div>
+        </section>
+
+        <section class="wrap approach-preview">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Approach</p>
+              <h2>From a feeling to a character you can ship.</h2>
+            </div>
+            <button type="button" class="text-btn" data-go="approach">How a commission runs</button>
+          </div>
+          <ol class="steps">
+            <li>
+              <span>01</span>
+              <h3>Brief</h3>
+              <p>A name, a mood, and where the character has to live — a jar, an app icon, a loop on a poster.</p>
+            </li>
+            <li>
+              <span>02</span>
+              <h3>Sculpt</h3>
+              <p>A clay pass first, so the silhouette is right before any color gets in the way.</p>
+            </li>
+            <li>
+              <span>03</span>
+              <h3>Still or motion</h3>
+              <p>Hero renders, a turnaround, or a short animation that returns cleanly to frame one.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="wrap close-cta">
+          <p class="kicker">Commissions</p>
+          <h2>Have a character in mind?</h2>
+          <p>A scribble or a sentence is enough to start. One character at a time, so the face stays specific.</p>
+          <button type="button" class="btn" data-go="contact">Start a project</button>
+        </section>
+      </section>
+
+      <section class="screen" data-screen="work" hidden>
+        <div class="wrap page-intro">
+          <p class="kicker">Work</p>
+          <h1>Sample characters, ready to be replaced.</h1>
+          <p class="lede">
+            Six stand-in mascots show how a project reads on the site. Swap the names, the copy, and drop in your own renders.
+          </p>
+          <div class="filters" role="group" aria-label="Filter work">
+            <button type="button" data-filter="All" aria-pressed="true">All</button>
+            <button type="button" data-filter="Mascot" aria-pressed="false">Mascots</button>
+            <button type="button" data-filter="Still" aria-pressed="false">Stills</button>
+            <button type="button" data-filter="Animation" aria-pressed="false">Animation</button>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="work-grid" id="work-grid"></div>
+          <p class="empty" id="work-empty" hidden>Nothing in this set yet.</p>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="approach" hidden>
+        <div class="wrap page-intro">
+          <p class="kicker">Approach</p>
+          <h1>A small studio for one strong character.</h1>
+          <p class="lede">
+            Studio Mäntylä takes mascots, character stills, and short animations. The work stays with a single sculptor from the first sketch to the final frames.
+          </p>
+        </div>
+        <div class="wrap split-notes">
+          <article>
+            <h2>What a commission looks like</h2>
+            <ol class="steps steps-stack">
+              <li>
+                <span>01 · Brief</span>
+                <p>You share the world the character belongs to, and the smallest place it has to read — a favicon, a label, a phone screen.</p>
+              </li>
+              <li>
+                <span>02 · Silhouette</span>
+                <p>Two or three directions, then one sculpt. You react to the clay before materials and light.</p>
+              </li>
+              <li>
+                <span>03 · Finish</span>
+                <p>Lookdev, a lit still or a turnaround, and motion only if the character needs to move.</p>
+              </li>
+            </ol>
+          </article>
+          <article>
+            <h2>Ways to begin</h2>
+            <div class="offers" id="offers">
+              <article class="offer">
+                <div>
+                  <h3>Mascot</h3>
+                  <p>A character system: model, expressions, and notes on how they behave.</p>
+                </div>
+                <button type="button" class="btn btn-ghost" data-go="contact" data-intent="Mascot">Commission</button>
+              </article>
+              <article class="offer">
+                <div>
+                  <h3>Character stills</h3>
+                  <p>A hero render and the crops you need for packaging, covers, or a launch.</p>
+                </div>
+                <button type="button" class="btn btn-ghost" data-go="contact" data-intent="Character stills">Commission</button>
+              </article>
+              <article class="offer">
+                <div>
+                  <h3>Animation</h3>
+                  <p>A short loop or intro. Built to repeat without a hitch.</p>
+                </div>
+                <button type="button" class="btn btn-ghost" data-go="contact" data-intent="Animation">Commission</button>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="contact" hidden>
+        <div class="wrap contact-layout">
+          <div>
+            <p class="kicker">Contact</p>
+            <h1>Tell me about the character.</h1>
+            <p class="lede">
+              Share who they are for, and whether you need a mascot, stills, or a loop. Studio Mäntylä replies from Helsinki.
+            </p>
+            <p class="contact-mail">hello@studiomantyla.fi</p>
+          </div>
+          <div class="form-card">
+            <form id="contact-form">
+              <div class="form-grid">
+                <label>Name
+                  <input name="name" autocomplete="name" />
+                </label>
+                <label>Email
+                  <input name="email" type="email" autocomplete="email" />
+                </label>
+                <label>Project
+                  <select name="intent">
+                    <option>Mascot</option>
+                    <option>Character stills</option>
+                    <option>Animation</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </label>
+                <label>Timing
+                  <input name="timing" placeholder="This spring" />
+                </label>
+                <label class="span-2">The character
+                  <textarea name="message" placeholder="Who they are, and where people will meet them."></textarea>
+                </label>
+              </div>
+              <p class="form-error" id="form-error" hidden></p>
+              <button type="submit" class="btn">Send the brief</button>
+            </form>
+            <div class="form-success" id="form-success" hidden>
+              <h2>The brief is on the bench.</h2>
+              <p>
+                This template keeps the note in the browser. Nothing is emailed. When you publish, point the form at your own address.
+              </p>
+              <button type="button" class="btn btn-ghost" id="form-reset">Write another</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="project" hidden>
+        <div class="wrap project-top">
+          <button type="button" class="text-btn" data-go="work">All work</button>
+          <div class="project-layout">
+            <div class="stage project-stage" id="project-stage" data-look="light">
+              <div class="stage-figure">
+                <svg class="mascot" viewBox="0 0 200 240" aria-hidden="true">
+                  <use id="project-mascot" href="#mascot-pihka"></use>
+                </svg>
+              </div>
+              <div class="segment" role="group" aria-label="Look stage">
+                <button type="button" data-look="sculpt" aria-pressed="false">Sculpt</button>
+                <button type="button" data-look="lookdev" aria-pressed="false">Lookdev</button>
+                <button type="button" data-look="light" aria-pressed="true">Lit still</button>
+              </div>
+            </div>
+            <div class="project-copy">
+              <p class="kicker" id="project-kind"></p>
+              <h1 id="project-title"></h1>
+              <p class="lede" id="project-summary"></p>
+              <dl class="meta">
+                <div>
+                  <dt>For</dt>
+                  <dd id="project-client"></dd>
+                </div>
+                <div>
+                  <dt>Year</dt>
+                  <dd id="project-year"></dd>
+                </div>
+                <div>
+                  <dt>Delivered</dt>
+                  <dd id="project-deliver"></dd>
+                </div>
+              </dl>
+              <p class="look-note" id="look-note">Studio still. Replace with a final render.</p>
+            </div>
+          </div>
+          <div class="story">
+            <article>
+              <h2>The brief</h2>
+              <p id="project-brief"></p>
+            </article>
+            <article>
+              <h2>What was made</h2>
+              <p id="project-made"></p>
+            </article>
+          </div>
+          <button type="button" class="btn" id="project-next" data-next>Next character</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p>Studio Mäntylä · Helsinki</p>
+        <p>Hahmoja, joilla on luonne.</p>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
